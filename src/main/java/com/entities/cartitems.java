@@ -2,7 +2,8 @@ package com.entities;
 
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -10,8 +11,10 @@ import java.sql.Date;
 
 @Entity
 @Table(name="cart_items")
-@Data
-public class cart_items {
+@Getter
+@Setter
+public class cartitems {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
