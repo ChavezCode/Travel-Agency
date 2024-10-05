@@ -7,13 +7,13 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
 @Table(name="cart_items")
 @Getter
 @Setter
-public class cartitems {
+public class CartItems {
 
 
     @Id

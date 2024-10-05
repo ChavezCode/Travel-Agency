@@ -1,5 +1,5 @@
 package com.entities;
 
-public enum status {
+public enum Status {
     pending, ordered, canceled
 }

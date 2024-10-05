@@ -1,4 +1,4 @@
 package com.entities;
 
-public class vacations {
+public class Vacations {
 }

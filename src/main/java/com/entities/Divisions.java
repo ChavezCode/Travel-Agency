@@ -1,4 +1,4 @@
 package com.entities;
 
-public class customers {
+public class Divisions {
 }
