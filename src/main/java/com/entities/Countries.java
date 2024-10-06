@@ -42,4 +42,7 @@ public class Countries {
     @Column(name = "division_id")
     private Long divisionId;
 
+    @ManyToOne
+    private Divisions divisions;
+
 }

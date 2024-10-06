@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name="division")
@@ -37,4 +38,8 @@ public class Divisions {
     @Column(name = "country_id")
     @JsonProperty("country_id")
     private Long countryId;
+
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "divisions")
+    private Set<Countries> countries;
 }
