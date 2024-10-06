@@ -1,5 +1,6 @@
 package com.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,9 +18,11 @@ public class Countries {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "country_id")
+    @JsonProperty("id")
     private Long countryId;
 
     @Column(name = "country")
+    @JsonProperty("country_name")
     private String country;
 
     @Column(name = "create_date")
