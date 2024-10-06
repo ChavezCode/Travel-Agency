@@ -8,6 +8,7 @@ import lombok.Setter;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name="customers")
@@ -49,6 +50,14 @@ public class Customers {
 
     @Column(name = "division_id")
     private Long divisionId;
+
+    @ManyToOne
+    @JoinColumn(name = "division_id")
+    private Divisions divisions;
+
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customers")
+    private Set<Carts> carts;
 
 
 }

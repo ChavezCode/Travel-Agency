@@ -9,6 +9,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name="carts")
@@ -30,7 +31,7 @@ public class Carts {
     @JsonProperty("party_size")
     private int partySize;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(value = EnumType.STRING)
     @Column(name="status")
     @JsonProperty("status")
     private Status status;
@@ -46,8 +47,16 @@ public class Carts {
     @UpdateTimestamp
     private Date lastUpdate;
 
+    @Column(name = "customer_id")
     @JsonProperty("customer")
     private Long customerId;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customers customers;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "carts")
+    private Set<CartItems> cartItems;
 
 
 

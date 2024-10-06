@@ -39,7 +39,10 @@ public class Divisions {
     @JsonProperty("country_id")
     private Long countryId;
 
+    @ManyToOne
+    @JoinColumn(name = "country_id")
+    private Countries countries;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "divisions")
-    private Set<Countries> countries;
+    private Set<Customers> customer;
 }

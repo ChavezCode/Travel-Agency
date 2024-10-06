@@ -10,6 +10,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name="vacations")
@@ -45,5 +46,8 @@ public class Vacations {
     @Column(name = "vacation_title")
     @JsonProperty("vacation_title")
     private String vacationTitle;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacations")
+    private Set<Excursions> excursions;
 
 }

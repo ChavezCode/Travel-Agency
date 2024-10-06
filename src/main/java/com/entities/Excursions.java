@@ -48,5 +48,9 @@ public class Excursions {
     @Column(name = "vacation_id")
     private Long vacationId;
 
+    @ManyToOne
+    @JoinColumn(name = "vacation_id")
+    private Vacations vacations;
+
 
 }

@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name="cart_items")
@@ -34,5 +35,11 @@ public class CartItems {
 
     @Column(name="vacation_id")
     private Long vacation_id;
+
+    @ManyToOne
+    @JoinColumn(name = "cart_id")
+    private Carts carts;
+
+
 
 }
