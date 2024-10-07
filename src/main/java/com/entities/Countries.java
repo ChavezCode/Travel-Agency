@@ -20,7 +20,7 @@ public class Countries {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "country_id")
     @JsonProperty("id")
-    private Long countryId;
+    private Long id;
 
     @Column(name = "country")
     @JsonProperty("country_name")

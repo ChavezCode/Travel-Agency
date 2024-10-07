@@ -38,9 +38,13 @@ public class Divisions {
     @Column(name = "country_id")
     @JsonProperty("country_id")
     private Long countryId;
+    public void setCountry(Countries countries) {
+        setCountryId(countries.getId());
+        this.countries =countries;
+    }
 
-    @ManyToOne
-    @JoinColumn(name = "country_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "country_id", nullable = false, insertable = false, updatable = false)
     private Countries countries;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "divisions")
