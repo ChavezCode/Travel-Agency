@@ -14,7 +14,7 @@ import java.util.Set;
 @Table(name="cart_items")
 @Getter
 @Setter
-public class CartItems {
+public class CartItem {
 
 
     @Id
@@ -29,19 +29,23 @@ public class CartItems {
     @Column(name="last_update")
     @UpdateTimestamp
     private Date last_update;
-
+//
+//Duplicate Mapping
 //    @Column(name="cart_id")
 //    private Long cartId;
 
+//    @Column(name = "vacation_id")
+//    private Long vacationId;
+
     @ManyToOne
     @JoinColumn(name="vacation_id")
-    private Vacations vacations;
+    private Vacation vacation;
 
     @ManyToOne
     @JoinColumn(name = "cart_id")
-    private Carts carts;
+    private Cart cart;
 
-    @ManyToMany(mappedBy = "cartItemsSet")
-    private Set<Excursions> excursionsSet;
+    @ManyToMany(mappedBy = "cartItem")
+    private Set<Excursion> excursion;
 
 }

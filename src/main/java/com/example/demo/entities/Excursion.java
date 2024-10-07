@@ -16,7 +16,7 @@ import java.util.Set;
 @Getter
 @Setter
 
-public class Excursions {
+public class Excursion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,7 +43,7 @@ public class Excursions {
     @Column(name = "last_update")
     @UpdateTimestamp
     private Date lastUpdate;
-
+//duplicate Mapping
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    @Column(name = "vacation_id")
@@ -51,13 +51,13 @@ public class Excursions {
 
     @ManyToOne
     @JoinColumn(name = "vacation_id")
-    private Vacations vacations;
+    private Vacation vacation;
 
     @ManyToMany
     @JoinTable(name = "excursion_cartitem",
     joinColumns = @JoinColumn(name = "excursion_id"),
             inverseJoinColumns = @JoinColumn(name = "cart_item_id"))
-    private Set<CartItems> cartItemsSet;
+    private Set<CartItem> cartItem;
 
 
 

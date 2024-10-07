@@ -15,7 +15,7 @@ import java.util.Set;
 @Table(name="carts")
 @Getter
 @Setter
-public class Carts {
+public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,10 +53,10 @@ public class Carts {
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
-    private Customers customers;
+    private Customer customer;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "carts")
-    private Set<CartItems> cartItems;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")
+    private Set<CartItem> cartItem;
 
 
 

@@ -14,7 +14,7 @@ import java.util.Set;
 @Table(name="countries")
 @Getter
 @Setter
-public class Countries {
+public class Country {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,16 +34,19 @@ public class Countries {
     @UpdateTimestamp
     private Date lastUpdate;
 
-    @Column(name = "phone")
-    private String phone;
 
-    @Column(name = "postal_code")
-    private String postalCode;
+//NOT PART OF TABLE
 
-    @Column(name = "division_id")
-    private Long divisionId;
+//    @Column(name = "phone")
+//    private String phone;
+//
+//    @Column(name = "postal_code")
+//    private String postalCode;
+//
+//    @Column(name = "division_id")
+//    private Long divisionId;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "countries")
-    private Set<Divisions> divisions;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "country")
+    private Set<Division> division;
 
 }

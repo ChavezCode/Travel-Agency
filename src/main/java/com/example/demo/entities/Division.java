@@ -14,7 +14,7 @@ import java.util.Set;
 @Table(name="divisions")
 @Getter
 @Setter
-public class Divisions {
+public class Division {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,15 +40,15 @@ public class Divisions {
     @Column(name = "country_id")
     @JsonProperty("country_id")
     private Long countryId;
-    public void setCountry(Countries countries) {
-        setCountryId(countries.getId());
-        this.countries =countries;
+    public void setCountry(Country country) {
+        setCountryId(country.getId());
+        this.country =country;
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id", nullable = false, insertable = false, updatable = false)
-    private Countries countries;
+    private Country country;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "divisions")
-    private Set<Customers> customer;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "division")
+    private Set<Customer> customer;
 }

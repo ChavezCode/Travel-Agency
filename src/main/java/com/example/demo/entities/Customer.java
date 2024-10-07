@@ -13,7 +13,7 @@ import java.util.Set;
 @Table(name="customers")
 @Getter
 @Setter
-public class Customers {
+public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,17 +30,18 @@ public class Customers {
 
     @Column(name = "customer_first_name")
     @JsonProperty("firstName")
-    private String customerFirstName;
+    private String firstName;
 
     @Column(name = "customer_last_name")
     @JsonProperty("lastName")
-    private String customerLastName;
+    private String lastName;
 
     @Column(name = "last_update")
     @UpdateTimestamp
     private Date lastUpdate;
 
     @Column(name = "phone")
+    @JsonProperty("phone")
     private String phone;
 
     @Column(name = "postal_code")
@@ -52,11 +53,11 @@ public class Customers {
 
     @ManyToOne
     @JoinColumn(name = "division_id")
-    private Divisions divisions;
+    private Division division;
 
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customers")
-    private Set<Carts> carts;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+    private Set<Cart> cart;
 
 
 }

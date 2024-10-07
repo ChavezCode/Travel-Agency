@@ -15,7 +15,7 @@ import java.util.Set;
 @Table(name="vacations")
 @Getter
 @Setter
-public class Vacations {
+public class Vacation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "vacation_id")
@@ -46,10 +46,10 @@ public class Vacations {
     @JsonProperty("vacation_title")
     private String vacationTitle;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacations")
-    private Set<CartItems> cartItemsSet;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacation")
+    private Set<CartItem> cartItem;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacations")
-    private Set<Excursions> excursions;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacation")
+    private Set<Excursion> excursion;
 
 }
