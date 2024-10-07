@@ -27,7 +27,6 @@ public class Division {
     private String divisionName;
 
 
-
     @Column(name = "create_date")
     @CreationTimestamp
     private Date createDate;
@@ -37,18 +36,21 @@ public class Division {
     private Date lastUpdate;
 
 
-    @Column(name = "country_id")
-    @JsonProperty("country_id")
-    private Long countryId;
-    public void setCountry(Country country) {
-        setCountryId(country.getId());
-        this.country =country;
-    }
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id", nullable = false, insertable = false, updatable = false)
     private Country country;
 
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "division")
     private Set<Customer> customer;
+
+    @Column(name = "country_id")
+    private Long country_id;
+    public void setCountry(Country country) {
+        setCountry_id(country.getId());
+        this.country = country;
+    }
+
 }
+
+
