@@ -48,15 +48,15 @@ public class Customers {
     @JsonProperty("postal_code")
     private String postalCode;
 
-    @Column(name = "division_id")
-    private Long divisionId;
+//    @Column(name = "division_id")
+//    private Long divisionId;
 
     @ManyToOne
     @JoinColumn(name = "division_id")
     private Divisions divisions;
 
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customers")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
     private Set<Carts> carts;
 
 

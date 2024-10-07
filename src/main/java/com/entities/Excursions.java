@@ -44,10 +44,10 @@ public class Excursions {
     @UpdateTimestamp
     private Date lastUpdate;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "vacation_id")
-    private Long vacationId;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(name = "vacation_id")
+//    private Long vacationId;
 
     @ManyToOne
     @JoinColumn(name = "vacation_id")

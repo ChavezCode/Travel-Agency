@@ -11,20 +11,22 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name="division")
+@Table(name="divisions")
 @Getter
 @Setter
 public class Divisions {
-
-    @Column(name = "division")
-    @JsonProperty("division_name")
-    private String division;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "division_id")
     @JsonProperty("id")
     private Long divisionId;
+
+    @Column(name = "division")
+    @JsonProperty("division_name")
+    private String divisionName;
+
+
 
     @Column(name = "create_date")
     @CreationTimestamp
