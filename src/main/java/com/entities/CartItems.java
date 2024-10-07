@@ -40,6 +40,7 @@ public class CartItems {
     @JoinColumn(name = "cart_id")
     private Carts carts;
 
-
+    @ManyToMany(mappedBy = "cartItemsSet")
+    private Set<Excursions> excursionsSet;
 
 }
