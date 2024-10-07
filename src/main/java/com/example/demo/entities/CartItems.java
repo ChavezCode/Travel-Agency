@@ -33,8 +33,9 @@ public class CartItems {
 //    @Column(name="cart_id")
 //    private Long cartId;
 
-    @Column(name="vacation_id")
-    private Long vacationId;
+    @ManyToOne
+    @JoinColumn(name="vacation_id")
+    private Vacations vacations;
 
     @ManyToOne
     @JoinColumn(name = "cart_id")
