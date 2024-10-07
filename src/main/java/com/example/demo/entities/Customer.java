@@ -18,22 +18,22 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "customer_id")
+    @Column(name = "customer_id", nullable = false)
     @JsonProperty("id")
     private Long customerId;
 
-    @Column(name = "address")
+    @Column(name = "address", nullable = false)
     @JsonProperty("address")
     private String address;
 
     @Column(name = "create_date")
     private Date createDate;
 
-    @Column(name = "customer_first_name")
+    @Column(name = "customer_first_name", nullable = false)
     @JsonProperty("firstName")
     private String firstName;
 
-    @Column(name = "customer_last_name")
+    @Column(name = "customer_last_name", nullable = false)
     @JsonProperty("lastName")
     private String lastName;
 
@@ -45,7 +45,7 @@ public class Customer {
     @JsonProperty("phone")
     private String phone;
 
-    @Column(name = "postal_code")
+    @Column(name = "postal_code", nullable = false)
     @JsonProperty("postal_code")
     private String postalCode;
 
