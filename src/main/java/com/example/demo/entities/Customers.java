@@ -1,7 +1,6 @@
-package com.entities;
+package com.example.demo.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSetter;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -56,7 +55,7 @@ public class Customers {
     private Divisions divisions;
 
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customers")
     private Set<Carts> carts;
 
 

@@ -1,9 +1,9 @@
-package com.dao;
+package com.example.demo.dao;
 
-import com.entities.Divisions;
+import com.example.demo.entities.Customers;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @CrossOrigin("http://localhost:4200")
-public interface DivisionsRepository extends JpaRepository<Divisions, Long> {
+public interface CustomersRepository extends JpaRepository<Customers, Long> {
 }

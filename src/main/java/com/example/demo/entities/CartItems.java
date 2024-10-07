@@ -1,4 +1,4 @@
-package com.entities;
+package com.example.demo.entities;
 
 
 import jakarta.persistence.*;
@@ -30,8 +30,8 @@ public class CartItems {
     @UpdateTimestamp
     private Date last_update;
 
-    @Column(name="cart_id")
-    private Long cartId;
+//    @Column(name="cart_id")
+//    private Long cartId;
 
     @Column(name="vacation_id")
     private Long vacationId;

@@ -1,4 +1,4 @@
-package com.entities;
+package com.example.demo.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
@@ -47,9 +47,9 @@ public class Carts {
     @UpdateTimestamp
     private Date lastUpdate;
 
-    @Column(name = "customer_id")
-    @JsonProperty("customer")
-    private Long customerId;
+//    @Column(name = "customer_id")
+//    @JsonProperty("customer")
+//    private Long customerId;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
