@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -60,4 +61,14 @@ public class Customer {
     private Set<Cart> cart;
 
 
+    public void add(Cart item) {
+        if (item != null) {
+            if (cart == null) {
+                cart = new HashSet<>();
+            }
+
+            cart.add(item);
+            item.setCustomer(this);
+        }
+    }
 }

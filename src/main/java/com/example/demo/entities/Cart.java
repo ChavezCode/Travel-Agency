@@ -9,6 +9,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -59,6 +60,14 @@ public class Cart {
     private Set<CartItem> cartItem;
 
 
+    public void add(CartItem item) {
+        if (item != null) {
+            if (cartItem == null) {
+                cartItem = new HashSet<>();
+            }
 
-
+            cartItem.add(item);
+            item.setCart(this);
+        }
+    }
 }
