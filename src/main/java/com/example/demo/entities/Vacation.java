@@ -50,6 +50,6 @@ public class Vacation {
     private Set<CartItem> cartItem;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacation")
-    private Set<Excursion> excursion;
+    private Set<Excursions> excursions;
 
 }

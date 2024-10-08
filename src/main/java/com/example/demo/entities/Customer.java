@@ -58,17 +58,17 @@ public class Customer {
 
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
-    private Set<Cart> cart;
+    private Set<Cart> carts;
 
 
-    public void add(Cart item) {
-        if (item != null) {
-            if (cart == null) {
-                cart = new HashSet<>();
+    public void add(Cart cart) {
+        if (cart != null) {
+            if (carts == null) {
+                carts = new HashSet<>();
             }
 
-            cart.add(item);
-            item.setCustomer(this);
+            carts.add(cart);
+            cart.setCustomer(this);
         }
     }
 }

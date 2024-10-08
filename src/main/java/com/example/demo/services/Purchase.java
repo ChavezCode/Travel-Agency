@@ -5,6 +5,7 @@ import com.example.demo.entities.CartItem;
 import com.example.demo.entities.Customer;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.Set;
 
@@ -14,5 +15,5 @@ public class Purchase {
 
     private Customer customer;
     private Cart cart;
-    private Set<CartItem> cartItem;
+    private Set<CartItem> cartItems;
 }
