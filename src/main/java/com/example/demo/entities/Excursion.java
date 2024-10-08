@@ -16,7 +16,7 @@ import java.util.Set;
 @Getter
 @Setter
 
-public class Excursions {
+public class Excursion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
