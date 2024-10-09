@@ -3,7 +3,9 @@ package com.example.demo.entities;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
@@ -27,6 +29,7 @@ public class Customer {
     private String address;
 
     @Column(name = "create_date")
+    @CreationTimestamp
     private Date createDate;
 
     @Column(name = "customer_first_name", nullable = false)
@@ -61,6 +64,8 @@ public class Customer {
     private Set<Cart> carts;
 
 
+
+
     public void add(Cart cart) {
         if (cart != null) {
             if (carts == null) {
@@ -70,5 +75,16 @@ public class Customer {
             carts.add(cart);
             cart.setCustomer(this);
         }
+    }
+    public Customer(){
+    }
+
+    public Customer(String firstName, String lastName, String phone, String address, String postalCode, Division division) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.address = address;
+        this.postalCode = postalCode;
+        this.division = division;
     }
 }
