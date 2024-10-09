@@ -25,7 +25,7 @@ public class Excursion {
     @JsonProperty("id")
     private Long excursionId;
 
-    @Column(name = "create_date")
+    @Column(name = "create_date", nullable = false)
     @CreationTimestamp
     private Date createDate;
 
@@ -54,10 +54,11 @@ public class Excursion {
     @JoinColumn(name = "vacation_id")
     private Vacation vacation;
 
-    @ManyToMany @JoinTable(name = "excursion_cartitem",
-            joinColumns = @JoinColumn(name = "excursion_id"),
-            inverseJoinColumns = @JoinColumn(name = "cart_item_id"))
-    private Set<CartItem> cartItems;
+    @ManyToMany
+    @JoinTable(name = "excursion_cartitem",
+            joinColumns = @JoinColumn(name = "excursion_id", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "cart_item_id", nullable = false))
+    Set<CartItem> cartItems;
 
 
 

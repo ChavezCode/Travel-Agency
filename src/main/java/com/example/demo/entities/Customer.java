@@ -28,7 +28,7 @@ public class Customer {
     @JsonProperty("address")
     private String address;
 
-    @Column(name = "create_date")
+    @Column(name = "create_date", nullable = false)
     @CreationTimestamp
     private Date createDate;
 
