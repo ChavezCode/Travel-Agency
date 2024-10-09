@@ -22,7 +22,7 @@ public class BootStrapData implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        if (this.customersRepository.count() <= 6L) {
+        if (this.customersRepository.count() == 1L) {
             Division first = divisionsRepository.findById(2L).orElse(null);
             Customer jorge = new Customer("Jorge", "Chavez", "503-333-5555", "1339 Hemlock way", "97303", first);
             customersRepository.save(jorge);
