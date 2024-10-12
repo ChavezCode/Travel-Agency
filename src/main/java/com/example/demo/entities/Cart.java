@@ -56,18 +56,19 @@ public class Cart {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")
-    private Set<CartItem> cartItem;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart", fetch = FetchType.LAZY)
+    private Set<CartItem> cartItem = new HashSet<>();
 
-
+// added line 64
     public void add(CartItem item) {
-        if (item != null) {
-            if (cartItem == null) {
-                cartItem = new HashSet<>();
-            }
-
-            cartItem.add(item);
-            item.setCart(this);
-        }
+        this.cartItem.add(item);
+//        if (item != null) {
+//            if (cartItem == null) {
+//                cartItem = new HashSet<>();
+//            }
+//
+//            cartItem.add(item);
+//            item.setCart(this);
+//        }
     }
 }

@@ -50,14 +50,16 @@ public class Excursion {
 //    @Column(name = "vacation_id")
 //    private Long vacationId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vacation_id")
     private Vacation vacation;
 
-    @ManyToMany
-    @JoinTable(name = "excursion_cartitem",
-            joinColumns = @JoinColumn(name = "excursion_id", nullable = false),
-            inverseJoinColumns = @JoinColumn(name = "cart_item_id", nullable = false))
+
+    //added mapped by and private
+    @ManyToMany(mappedBy = "excursions")
+//    @JoinTable(name = "excursion_cartitem",
+//            joinColumns = @JoinColumn(name = "excursion_id", nullable = false),
+//            inverseJoinColumns = @JoinColumn(name = "cart_item_id", nullable = false))
     Set<CartItem> cartItems;
 
 
