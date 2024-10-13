@@ -32,17 +32,16 @@ public class CheckOutServiceImpl implements CheckOutService{
     public PurchaseResponse placeOrder(Purchase purchase) {
         //retrieve the cart and customer info from dto
         Cart cart = purchase.getCart();
-
         Customer customer = purchase.getCustomer();
 
 
 
-        //generate tracking number
+        //generate tracking number and change status to ordered
         String orderTrackingNumber = generateOrderTrackingNumber();
         cart.setOrderTrackingNumber(orderTrackingNumber);
         cart.setStatus(ordered);
 
-        //populate CART with CARTItems
+        //populate every cartItem and add it to the cart and set the item to the cart to create a relationship between cart and cartitems
         Set<CartItem> cartItems = purchase.getCartItems();
         cartItems.forEach(item -> {
             cart.add(item);
@@ -52,16 +51,16 @@ public class CheckOutServiceImpl implements CheckOutService{
 
 
 
-        //POPULATE CART with cartItem and customer
+        //set a relationship between customer and the cart
 //        cart.setCartItem(purchase.getCartItems());
-//        cart.setCustomer(purchase.getCustomer());
+        cart.setCustomer(purchase.getCustomer());
 
         //populate customer with cart
 
 //        customer.add(cart);
 
         //save the database
-//        customersRepository.save(customer);
+        customersRepository.save(customer);
         cartRepository.save(cart);
 
         
