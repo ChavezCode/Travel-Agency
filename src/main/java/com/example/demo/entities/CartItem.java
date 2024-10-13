@@ -2,7 +2,9 @@ package com.example.demo.entities;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -15,6 +17,8 @@ import java.util.Set;
 @Table(name="cart_items")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class CartItem {
 
 
@@ -49,7 +53,8 @@ public class CartItem {
     @ManyToMany
     @JoinTable(name = "excursion_cartitem",
             joinColumns = @JoinColumn(name = "cart_item_id", nullable = false),
-            inverseJoinColumns = @JoinColumn(name = "excursion_id", nullable = false))
+            inverseJoinColumns = @JoinColumn(name = "excursion_id", nullable = false)
+    )
     Set<Excursion> excursions;
 
 }

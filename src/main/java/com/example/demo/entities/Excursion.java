@@ -55,11 +55,11 @@ public class Excursion {
     private Vacation vacation;
 
 
-    //added mapped by and private
-    @ManyToMany(mappedBy = "excursions")
-//    @JoinTable(name = "excursion_cartitem",
-//            joinColumns = @JoinColumn(name = "excursion_id", nullable = false),
-//            inverseJoinColumns = @JoinColumn(name = "cart_item_id", nullable = false))
+
+    @ManyToMany
+    @JoinTable(name = "excursion_cartitem",
+            joinColumns = @JoinColumn(name = "excursion_id", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "cart_item_id", nullable = false))
     Set<CartItem> cartItems;
 
 

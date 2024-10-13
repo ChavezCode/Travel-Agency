@@ -61,14 +61,14 @@ public class Cart {
 
 // added line 64
     public void add(CartItem item) {
-        this.cartItem.add(item);
-//        if (item != null) {
-//            if (cartItem == null) {
-//                cartItem = new HashSet<>();
-//            }
-//
-//            cartItem.add(item);
-//            item.setCart(this);
-//        }
+//        this.cartItem.add(item);
+        if (item != null) {
+            if (cartItem == null) {
+                cartItem = new HashSet<>();
+            }
+
+            cartItem.add(item);
+            item.setCart(this);
+        }
     }
 }
