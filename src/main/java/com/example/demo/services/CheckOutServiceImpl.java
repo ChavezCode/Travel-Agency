@@ -19,6 +19,8 @@ public class CheckOutServiceImpl implements CheckOutService{
     private CartRepository cartRepository;
 
 
+
+
     public CheckOutServiceImpl(CustomersRepository customersRepository, CartRepository cartRepository) {
         this.customersRepository = customersRepository;
         this.cartRepository = cartRepository;
@@ -30,7 +32,7 @@ public class CheckOutServiceImpl implements CheckOutService{
     public PurchaseResponse placeOrder(Purchase purchase) {
         //retrieve the cart and customer info from dto
         Cart cart = purchase.getCart();
-        cart.setStatus(ordered);
+
         Customer customer = purchase.getCustomer();
 
 
@@ -38,22 +40,28 @@ public class CheckOutServiceImpl implements CheckOutService{
         //generate tracking number
         String orderTrackingNumber = generateOrderTrackingNumber();
         cart.setOrderTrackingNumber(orderTrackingNumber);
+        cart.setStatus(ordered);
 
         //populate CART with CARTItems
         Set<CartItem> cartItems = purchase.getCartItems();
-        cartItems.forEach(item -> cart.add(item));
+        cartItems.forEach(item -> {
+            cart.add(item);
+            item.setCart(cart);
+        });
+
+
 
 
         //POPULATE CART with cartItem and customer
-        cart.setCartItem(purchase.getCartItems());
-        cart.setCustomer(purchase.getCustomer());
+//        cart.setCartItem(purchase.getCartItems());
+//        cart.setCustomer(purchase.getCustomer());
 
         //populate customer with cart
 
-        customer.add(cart);
+//        customer.add(cart);
 
         //save the database
-        customersRepository.save(customer);
+//        customersRepository.save(customer);
         cartRepository.save(cart);
 
         
