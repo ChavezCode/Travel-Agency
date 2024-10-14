@@ -24,11 +24,11 @@ public class Cart {
     @JsonProperty("id") //matches variable name in front end
     private Long cartId;
 
-    @Column(name="package_price")
+    @Column(name="package_price", nullable = false)
     @JsonProperty("package_price")
     private BigDecimal packagePrice;
 
-    @Column(name="party_size")
+    @Column(name="party_size", nullable = false)
     @JsonProperty("party_size")
     private int partySize;
 

@@ -2,9 +2,8 @@ package com.example.demo.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
+import lombok.*;
+import org.antlr.v4.runtime.misc.NotNull;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -16,6 +15,8 @@ import java.util.Set;
 @Table(name="customers")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Customer {
 
     @Id
@@ -23,6 +24,7 @@ public class Customer {
     @Column(name = "customer_id", nullable = false)
     @JsonProperty("id")
     private Long customerId;
+
 
     @Column(name = "address", nullable = false)
     @JsonProperty("address")
@@ -32,9 +34,11 @@ public class Customer {
     @CreationTimestamp
     private Date createDate;
 
+
     @Column(name = "customer_first_name", nullable = false)
     @JsonProperty("firstName")
     private String firstName;
+
 
     @Column(name = "customer_last_name", nullable = false)
     @JsonProperty("lastName")
@@ -44,7 +48,7 @@ public class Customer {
     @UpdateTimestamp
     private Date lastUpdate;
 
-    @Column(name = "phone")
+    @Column(name = "phone", nullable = false)
     @JsonProperty("phone")
     private String phone;
 
@@ -75,8 +79,6 @@ public class Customer {
             carts.add(cart);
             cart.setCustomer(this);
         }
-    }
-    public Customer(){
     }
 
     public Customer(String firstName, String lastName, String phone, String address, String postalCode, Division division) {

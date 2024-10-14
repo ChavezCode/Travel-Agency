@@ -30,6 +30,7 @@ public class CheckOutServiceImpl implements CheckOutService{
     @Override
     @Transactional
     public PurchaseResponse placeOrder(Purchase purchase) {
+
         //retrieve the cart and customer info from dto
         Cart cart = purchase.getCart();
         Customer customer = purchase.getCustomer();
@@ -48,30 +49,26 @@ public class CheckOutServiceImpl implements CheckOutService{
 //            item.setCart(cart);
         });
 
-
-
-
-        //set a relationship between customer and the cart
-//        cart.setCartItem(purchase.getCartItems());
-//        cart.setCustomer(purchase.getCustomer());
-
-        //populate customer with cart
-
-//        customer.add(cart);
-
-        //save the database
-//        customersRepository.save(customer);
         cartRepository.save(cart);
 
         
         //return response
+        if (cartItems.isEmpty()) {
+            String empty = emptyCart();
+            return new PurchaseResponse(empty);
+        } else {
+            return new PurchaseResponse(orderTrackingNumber);
+        }
 
 
-        return new PurchaseResponse(orderTrackingNumber);
     }
 
     private String generateOrderTrackingNumber() {
         //creating a unique id that is random and hard to guess (a Universally unique Identifier) UUID
         return UUID.randomUUID().toString();
+    }
+
+    private String emptyCart() {
+        return "Cart is empty.";
     }
 }
