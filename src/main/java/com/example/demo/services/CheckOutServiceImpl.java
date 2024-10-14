@@ -45,7 +45,7 @@ public class CheckOutServiceImpl implements CheckOutService{
         Set<CartItem> cartItems = purchase.getCartItems();
         cartItems.forEach(item -> {
             cart.add(item);
-            item.setCart(cart);
+//            item.setCart(cart);
         });
 
 
@@ -53,14 +53,14 @@ public class CheckOutServiceImpl implements CheckOutService{
 
         //set a relationship between customer and the cart
 //        cart.setCartItem(purchase.getCartItems());
-        cart.setCustomer(purchase.getCustomer());
+//        cart.setCustomer(purchase.getCustomer());
 
         //populate customer with cart
 
 //        customer.add(cart);
 
         //save the database
-        customersRepository.save(customer);
+//        customersRepository.save(customer);
         cartRepository.save(cart);
 
         
